@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Julia Francelle Valdez | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #121212;
+            color: #e0e0e0;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1f1f1f 0%, #2c2c2c 100%);
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 64, 129, 0.1) 0%, transparent 50%);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.4em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Profile Image */
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 5px solid #ff4081;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: #1d1d1d;
+        }
+
+        h2 {
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            color: #ff4081;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #ff4081;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* About Section */
+        .about .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        /* Education Section */
+        .education {
+            background-color: #1d1d1d;
+        }
+
+        .education-item {
+            background-color: #2c2c2c;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-left: 4px solid #ff4081;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .education-item h3 {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+            color: #ebf0f0;
+        }
+
+        .education-item .degree {
+            font-size: 1.3em;
+            color: #ff4081;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .education-item .year {
+            font-size: 1.1em;
+            color: #ccc;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* Skills Section */
+        .skills ul {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skills ul li {
+            padding: 15px 20px;
+            font-size: 1.2em;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border-left: 4px solid #ff4081;
+        }
+
+        .skills ul li:hover {
+            transform: translateY(-5px);
+            background-color: #333;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project {
+            background-color: #2c2c2c;
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #ebf0f0;
+        }
+
+        .project p {
+            font-size: 1.1em;
+            color: #ccc;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #ff4081;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .project-link::after {
+            content: '→';
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #f50057;
+        }
+
+        .project-link:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Project Images */
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover .project-img {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact a {
+            color: #ff4081;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: #f50057;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f1f1f;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #333;
+        }
+
+        footer p {
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(31, 31, 31, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .logo span {
+            color: #ff4081;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ff4081;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ff4081;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Button - Hidden by default */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #ff4081;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #f50057;
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            height: 100vh;
+            background-color: #1f1f1f;
+            z-index: 1001;
+            transition: right 0.3s ease;
+            padding: 80px 30px 30px;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-menu .nav-links li {
+            margin: 0;
+        }
+
+        .mobile-menu .nav-links a {
+            font-size: 1.2em;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 992px) {
+            .about .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            header {
+                padding: 120px 0 80px;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header p {
+                font-size: 1.2em;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            h2 {
+                font-size: 2.2em;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            /* Show mobile menu button on small screens */
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            /* Hide regular nav links on small screens */
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            header p {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Julia<span>Valdez</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="close-menu">×</button>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Header -->
+    <header id="home">
+        <div class="container">
+            <img src="juliapic.png" alt="Julia's Photo" class="profile-img">
+            <h1>Julia Francelle Valdez</h1>
+            <p>Web Developer | Business Analyst | Front-End Developer</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>Hello! I'm Julia, a passionate web developer and designer with a keen eye for detail and a love for creating clean, functional, and aesthetically pleasing websites. With experience in HTML, CSS, JavaScript, and more, I'm always excited to learn new skills and bring innovative ideas to life.</p>
+                <p>I'm currently a 3rd year Information Technology student with a major in Business Analytics. My academic journey has provided me with a strong foundation in both technical development and business analysis, allowing me to bridge the gap between technical implementation and business requirements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="container">
+            <h2>Educational Background</h2>
+            <div class="education-item">
+                <h3>Batangas State University - Mabini Campus</h3>
+                <div class="degree">Bachelor of Science in Information Technology</div>
+                <div class="year">2023 - Present</div>
+            </div>
+            <div class="education-item">
+                <h3>Anselmo A. Sandoval Memorial High School</h3>
+                <div class="degree">Information and Communications Technology</div>
+                <div class="year">2023</div>
+            </div>
+            <div class="education-item">
+                <h3>Malimatoc Elementary School</h3>
+                <div class="year">2017</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Responsive Design</li>
+                <li>Business Analysis</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <img src="mabini.PNG" alt="Mabini Tourism Website" class="project-img">                   
+                        <h3>Mabini Tourism</h3>
+                    <p>Mabini is a scenic town in Batangas, Philippines, famous for its rocky beaches, coral reefs, and breathtaking underwater scenery. It's the home of Anilao — a hotspot for divers worldwide. Mabini is a haven for nature lovers, offering hiking, snorkeling, diving, and tranquil views of the sea and mountains.</p>
+                    <a href="https://mabini-tourism-2t27.vercel.app" target="_blank" class="project-link">View Project</a>
+                </div>
+                
+                <div class="project">
+                    <img src="port.PNG" alt="Portfolio Website" class="project-img">
+                    <h3>Portfolio Website</h3>
+                    <p>A responsive portfolio website showcasing my skills, projects, and professional background. Built with clean HTML and CSS, featuring a modern dark theme with vibrant accent colors and smooth animations.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                
+                <div class="project">
+                    <img src="flavor.PNG" alt="E-commerce Platform" class="project-img">
+                    <h3>E-commerce Platform</h3>
+                    <p>A fully responsive e-commerce website with product listings, shopping cart functionality, and secure checkout process. Designed with user experience in mind to create an intuitive shopping journey.</p>
+                    <a href="https://flavor-hub-delta.vercel.app" class="project-link">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Feel free to get in touch if you want to collaborate or just say hello!</p>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:juliafrancellevaldez@gmail.com">juliafrancellevaldez@gmail.com</a></p>
+                <p>GitHub: <a href="https://github.com/juliafrancellevaldez-cmd" target="_blank">github.com/juliavaldez</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Julia Francelle Valdez | All rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const closeMenu = document.querySelector('.close-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('.mobile-menu .nav-links a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
